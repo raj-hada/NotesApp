@@ -15,7 +15,7 @@
             android:id="@+id/llrow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
+            android:padding="5dp"
             android:layout_margin="12dp">
 
             <LinearLayout
@@ -28,16 +28,20 @@
                     android:layout_width="248dp"
                     android:layout_height="wrap_content"
                     android:text="Title"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/txtContent"
                     android:layout_width="247dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12sp"
                     android:text="content"
-                    android:textSize="20dp" />
+                    android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/txtTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""/>
             </LinearLayout>
 
             <ImageView

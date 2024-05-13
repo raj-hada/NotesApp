@@ -16,17 +16,21 @@ public class Note {
 
     @ColumnInfo(name="content")
     private String content;
+    @ColumnInfo(name="time")
+    private String time;
 
     @Ignore
-    public Note(int id, String title, String content) {
+    public Note(int id, String title, String content, String time) {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.time = time;
     }
 
-    public Note(String title, String content) {
+    public Note(String title, String content,String time) {
         this.title = title;
         this.content = content;
+        this.time = time;
     }
 
     public int getId() {
@@ -51,5 +55,13 @@ public class Note {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

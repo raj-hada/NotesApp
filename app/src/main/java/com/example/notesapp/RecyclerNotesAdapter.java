@@ -18,7 +18,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class RecyclerNotesAdapter extends RecyclerView.Adapter<RecyclerNotesAdapter.ViewHolder> {
 
@@ -43,6 +45,7 @@ public class RecyclerNotesAdapter extends RecyclerView.Adapter<RecyclerNotesAdap
     public void onBindViewHolder(@NonNull RecyclerNotesAdapter.ViewHolder holder, int position) {
         holder.txtTitle.setText(arrNotes.get(position).getTitle());
         holder.txtContent.setText(arrNotes.get(position).getContent());
+        holder.txtTime.setText(arrNotes.get(position).getTime());
         holder.llrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,7 +75,7 @@ public class RecyclerNotesAdapter extends RecyclerView.Adapter<RecyclerNotesAdap
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtTitle , txtContent;
+        TextView txtTitle , txtContent , txtTime;
         RelativeLayout llrow;
         ImageView imgDelete;
         public ViewHolder(@NonNull View itemView) {
@@ -81,6 +84,7 @@ public class RecyclerNotesAdapter extends RecyclerView.Adapter<RecyclerNotesAdap
             txtContent = itemView.findViewById(R.id.txtContent);
             llrow = itemView.findViewById(R.id.llrow);
             imgDelete = itemView.findViewById(R.id.imgDelete);
+            txtTime = itemView.findViewById(R.id.txtTime);
 
         }
     }
@@ -91,7 +95,7 @@ public class RecyclerNotesAdapter extends RecyclerView.Adapter<RecyclerNotesAdap
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        databaseHelper.noteDao().deleteNotes(new Note(arrNotes.get(pos).getId(),arrNotes.get(pos).getTitle(),arrNotes.get(pos).getContent()));
+                        databaseHelper.noteDao().deleteNotes(new Note(arrNotes.get(pos).getId(),arrNotes.get(pos).getTitle(),arrNotes.get(pos).getContent(),arrNotes.get(pos).getTime()));
                         ((MainActivity)context).showNotes();
                     }
                 })
@@ -134,6 +138,7 @@ public class RecyclerNotesAdapter extends RecyclerView.Adapter<RecyclerNotesAdap
                             Note noteToUpdate = arrNotes.get(pos);
                             noteToUpdate.setTitle(newTitle);
                             noteToUpdate.setContent(newContent);
+                            noteToUpdate.setTime(new SimpleDateFormat("HH.mm.ss dd.MM.yyyy").format(new Date()));
                             databaseHelper.noteDao().updateNotes(noteToUpdate);
 
                             // Notify adapter about the change
@@ -155,6 +160,5 @@ public class RecyclerNotesAdapter extends RecyclerView.Adapter<RecyclerNotesAdap
 
         dialog.show();
     }
-
 
 }

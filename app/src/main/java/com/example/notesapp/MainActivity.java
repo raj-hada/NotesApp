@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,10 +52,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         String title = edtTitle.getText().toString();
                         String content = edtContent.getText().toString();
+                        String time = new SimpleDateFormat("HH.mm.ss  dd.MM.yyyy").format(new Date());
 
                         if(!content.equals("")){
 
-                            databaseHelper.noteDao().addNotes(new Note(title,content));
+                            databaseHelper.noteDao().addNotes(new Note(title,content,time));
                             showNotes();
                             dialog.dismiss();
 
