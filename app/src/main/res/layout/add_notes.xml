@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+
+
+    <TextView
+        android:id="@+id/addtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Notes"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/edtTitle"
+        android:layout_width="373dp"
+        android:layout_height="50dp"
+        android:layout_margin="20sp"
+        android:hint="Enter Title"
+        android:gravity="center_vertical"
+        android:textSize="16dp"
+        android:padding="16sp"/>
+
+    <EditText
+        android:id="@+id/edtContent"
+        android:layout_width="370dp"
+        android:layout_height="49dp"
+        android:gravity="center_vertical"
+        android:hint="Type Something"
+        android:textSize="16dp"
+        android:padding="16sp"/>
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_marginTop="10sp"
+        android:textSize="12sp"/>
+</LinearLayout>
