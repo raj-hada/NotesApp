@@ -16,6 +16,7 @@ public class Note {
 
     @ColumnInfo(name="content")
     private String content;
+    
     @ColumnInfo(name="time")
     private String time;
 
